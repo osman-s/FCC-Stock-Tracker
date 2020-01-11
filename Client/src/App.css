@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bug:hover > .bug2 {
+  color: rgb(69, 235, 3);
+}
+.checks {
+  padding: 10px;
+}
+.form-space {
+  padding-top: 3vh;
+}
+.check-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.center {
+  text-align: center;
+}
+.lefter {
+  text-align: left;
+}
+.tester {
+  background-color: grey;
+}
+.projbox {
+  padding-top: 1vh;
+}
+.project-issues {
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 9px;
+}
+.project-id {
+  font-size: 1rem;
+}
+.project-title {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.project-text {
+  font-size: 1.5vh;
+  margin-top: -1.5vh;
+  margin-bottom: 0.7vh;
+}
+.project-keys {
+  font-size: 0.7vh;
+}
+.issue-resdiv {
+  padding: .5vh;
+}
+.issue-resolver {
+  margin-left: 1vw;
+  padding: .3vh;
+  border-radius: 10%;
+}
+.issue-resolver:hover {
+  background-color: rgb(160, 255, 255);
+}
+.forms-c {
+  /* text-align: center; */
+  margin-left: 1vw;
+  display: flex;
+  justify-content: flex-start;
+}
+.widther {
+  width: 60vw;
+}
+.padder {
+  padding: 2vh;
+  text-align: center;
+}
