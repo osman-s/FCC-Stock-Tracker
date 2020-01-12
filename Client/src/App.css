@@ -1,7 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -30,8 +32,8 @@
     transform: rotate(360deg);
   }
 }
-.bug:hover > .bug2 {
-  color: rgb(69, 235, 3);
+.bookss:hover > .fa-book {
+  color: rgb(3, 181, 235);
 }
 .checks {
   padding: 10px;
@@ -52,40 +54,6 @@
 .tester {
   background-color: grey;
 }
-.projbox {
-  padding-top: 1vh;
-}
-.project-issues {
-  text-align: center;
-  border: 1px solid grey;
-  border-radius: 9px;
-}
-.project-id {
-  font-size: 1rem;
-}
-.project-title {
-  font-weight: bolder;
-  font-size: 1.5rem;
-}
-.project-text {
-  font-size: 1.5vh;
-  margin-top: -1.5vh;
-  margin-bottom: 0.7vh;
-}
-.project-keys {
-  font-size: 0.7vh;
-}
-.issue-resdiv {
-  padding: .5vh;
-}
-.issue-resolver {
-  margin-left: 1vw;
-  padding: .3vh;
-  border-radius: 10%;
-}
-.issue-resolver:hover {
-  background-color: rgb(160, 255, 255);
-}
 .forms-c {
   /* text-align: center; */
   margin-left: 1vw;
@@ -95,7 +63,46 @@
 .widther {
   width: 60vw;
 }
+.widther2 {
+  width: 20vw;
+}
 .padder {
   padding: 2vh;
   text-align: center;
+}
+.borderman {
+  border: 1px solid rgb(216, 70, 70);
+  border-radius: 9px;
+}
+.borderman2 {
+  border: 1px solid rgb(70, 194, 216);
+  border-radius: 9px;
+}
+.book-container {
+  border: 1px solid grey;
+  border-radius: 9px;
+  padding: 1vh;
+  /* width: 40vw; */
+}
+.book-outer {
+  padding: 1vh;
+}
+.book-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.column-container {
+  display: flex;
+}
+.right-column {
+  width: 100%;
+  display: flex;
+}
+.placers {
+  padding: 2vh;
+}
+.cb-border {
+  border: 1px solid rgb(70, 194, 216);
+  border-radius: 9px;
+  padding: 2vh;
 }
