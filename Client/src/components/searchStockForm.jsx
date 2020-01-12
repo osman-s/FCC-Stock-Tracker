@@ -3,24 +3,22 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { bookComment } from "../services/bookService";
 
-class CommentForm extends Form {
+class SearchStockForm extends Form {
   state = {
-    data: { _id: "", comment: "" },
+    data: { stockSymbol: "" },
     errors: {}
   };
 
   schema = {
-    _id: Joi.string()
+    stockSymbol: Joi.string()
       .required()
-      .label("BookId"),
-    comment: Joi.string()
-      .label("Comment")
+      .label("BookId")
   };
 
   doSubmit = async () => {
     try {
-      await bookComment(this.state.data);
-      this.props.refresh();
+      // await bookComment(this.state.data);
+      // this.props.refresh();
     //   window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
@@ -35,10 +33,9 @@ class CommentForm extends Form {
     return (
       <div className="forms-c">
         <div>
-          <h1>Post Comment:</h1>
+          <h1></h1>
           <form onSubmit={this.handleSubmit} className="widther">
-            {this.renderInput("_id", "BookId to comment on:", "")}
-            {this.renderInput("comment", "comment:", "")}
+            {this.renderInput("stockSymbol", "", "Enter stock symbol")}
             {this.renderButton("Submit")}
           </form>
         </div>
@@ -47,4 +44,4 @@ class CommentForm extends Form {
   }
 }
 
-export default CommentForm;
+export default SearchStockForm;

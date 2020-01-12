@@ -1,59 +1,55 @@
 import React, { Component } from "react";
-import BookForm from "./bookForm";
-import CommentForm from "./commentForm";
-import { getBooks, getComments } from "../services/bookService";
-import CurrentCommentForm from "./currentCommentForm";
 import { getStocks } from "../services/stockService";
+import SearchStockForm from "./searchStockForm";
+import Plotly from 'plotly.js-basic-dist';
+import createPlotlyComponent from 'react-plotly.js/factory';
+const Plot = createPlotlyComponent(Plotly);
 
 class Home extends Component {
   state = {
-    stockXValues: [],
-    stockYValues: []
+    stockSymbol: "",
+    xValues: [],
+    yValues: []
   };
 
   async componentDidMount() {
-    const { data: stockData } = await getStocks("NFLX");
-    let stockXValues = [];
-    let stockYValues = [];
-    for (var key in stockData["Time Series (Daily)"]) {
-      stockXValues.push(key);
-      stockYValues.push(stockData["Time Series (Daily)"][key]['1. open']);
-    }
-    this.setState({ stockXValues, stockYValues})
-    // const { data: books } = await getBooks();
-    // const { data: comments } = await getComments();
-    // this.setState({ books, comments });
+    await this.handleStocks("NFLX");
     console.log(this.state);
   }
 
-  // refreshBooks = async () => {
-  //   const { data: books } = await getBooks();
-  //   this.setState({ books });
-  // };
-  // refreshComments = async () => {
-  //   const { data: comments } = await getComments();
-  //   await this.setState({ comments });
-  // };
-  // refreshCurrentComments = async bookId => {
-  //   await this.refreshComments();
-  //   await this.handleBook(bookId);
-  // };
-  // handleBook = async bookId => {
-  //   var currentBook = this.state.books.filter(book => {
-  //     return book._id === bookId;
-  //   });
-  //   var currentComments = this.state.comments.filter(comment => {
-  //     return comment.book._id === bookId;
-  //   });
-  //   await this.setState({ currentBook, currentComments });
-  // };
+  handleStocks = async stock => {
+    const { data: stockData } = await getStocks(stock);
+    console.log(stockData);
+    let stockSymbol = stockData["Meta Data"]["2. Symbol"];
+    let xValues = [];
+    let yValues = [];
+    for (var key in stockData["Time Series (Daily)"]) {
+      // data.push({
+      //   x: key,
+      //   y: parseInt(stockData["Time Series (Daily)"][key]["1. open"])
+      xValues.push(key);
+      yValues.push(stockData["Time Series (Daily)"][key]["1. open"]);
+    }
+    this.setState({ xValues, yValues, stockSymbol });
+  };
 
   render() {
-    const { books, currentBook, currentComments } = this.state;
-
+    const { xValues, yValues, stockSymbol } = this.state;
     return (
       <div>
-        <h1>New Project</h1>
+        <SearchStockForm />
+        <Plot
+          data={[
+            {
+              x: xValues,
+              y: yValues,
+              type: 'scatter',
+              mode: 'lines+markers',
+              marker: {color: 'red'},
+            }
+          ]}
+          layout={{width: 720, height: 440, title: stockSymbol}}
+        />
       </div>
     );
   }
