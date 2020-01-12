@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { getStocks } from "../services/stockService";
 import SearchStockForm from "./searchStockForm";
-import Plotly from 'plotly.js-basic-dist';
-import createPlotlyComponent from 'react-plotly.js/factory';
+import Plotly from "plotly.js-basic-dist";
+import createPlotlyComponent from "react-plotly.js/factory";
 const Plot = createPlotlyComponent(Plotly);
 
 class Home extends Component {
   state = {
-    stockSymbol: "",
+    stockSymbol: "NFLX",
     xValues: [],
     yValues: []
   };
 
   async componentDidMount() {
-    await this.handleStocks("NFLX");
+    await this.handleStocks(this.state.stockSymbol);
     console.log(this.state);
   }
 
@@ -33,23 +33,30 @@ class Home extends Component {
     this.setState({ xValues, yValues, stockSymbol });
   };
 
+  setStock = async stock => {
+    // await this.setState({ stockSymbol: stock });
+    await this.handleStocks(stock);
+  };
+
   render() {
     const { xValues, yValues, stockSymbol } = this.state;
     return (
-      <div>
-        <SearchStockForm />
-        <Plot
-          data={[
-            {
-              x: xValues,
-              y: yValues,
-              type: 'scatter',
-              mode: 'lines+markers',
-              marker: {color: 'red'},
-            }
-          ]}
-          layout={{width: 720, height: 440, title: stockSymbol}}
-        />
+      <div className="container1">
+        <div className="">
+          <SearchStockForm setStock={this.setStock} />
+          <Plot
+            data={[
+              {
+                x: xValues,
+                y: yValues,
+                type: "scatter",
+                mode: "lines+markers",
+                marker: { color: "red" }
+              }
+            ]}
+            layout={{ width: 720, height: 440, title: stockSymbol }}
+          />
+        </div>
       </div>
     );
   }

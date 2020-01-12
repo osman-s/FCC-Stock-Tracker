@@ -17,6 +17,8 @@ class SearchStockForm extends Form {
 
   doSubmit = async () => {
     try {
+      console.log(this.state.data.stockSymbol)
+      this.props.setStock(this.state.data.stockSymbol)
       // await bookComment(this.state.data);
       // this.props.refresh();
     //   window.location = "/";
@@ -34,9 +36,11 @@ class SearchStockForm extends Form {
       <div className="forms-c">
         <div>
           <h1></h1>
-          <form onSubmit={this.handleSubmit} className="widther">
+          <form onSubmit={this.handleSubmit}>
+            <div className="widther">
             {this.renderInput("stockSymbol", "", "Enter stock symbol")}
             {this.renderButton("Submit")}
+            </div>
           </form>
         </div>
       </div>
