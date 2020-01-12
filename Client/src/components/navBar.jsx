@@ -6,7 +6,7 @@ const NavBar = ({ user }) => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
         <div className="bookss">
-          <i className="fas fa-book"></i> Personal Library
+        <i class="fas fa-file-invoice-dollar flow p-2"></i> Stock Tracker App
         </div>
       </Link>
       <div className="" id="navbarNavAltMarkup"></div>

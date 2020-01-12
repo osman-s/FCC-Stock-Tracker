@@ -32,7 +32,7 @@ html {
     transform: rotate(360deg);
   }
 }
-.bookss:hover > .fa-book {
+.bookss:hover > .flow {
   color: rgb(3, 181, 235);
 }
 .checks {
