@@ -18,7 +18,7 @@ class SelectDataset extends Component {
       <nav aria-label="..." className="mr-3">
         <ul className="pagination ">
           <button
-            className={active === 0 ? "btn btn-primary" : "btn btn border"}
+            className={active === 0 ? "btn btn-primary" : "btn border"}
             name="active"
             onClick={this.handleClick}
             value="0"
