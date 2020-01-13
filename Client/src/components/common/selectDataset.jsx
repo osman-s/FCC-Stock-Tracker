@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class SelectDataset extends Component {
   state = {
-    data: { active: "0" }
+    data: { active: 0 }
   };
 
   handleClick = async ({ currentTarget: input }) => {
