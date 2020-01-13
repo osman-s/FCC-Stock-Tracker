@@ -35,15 +35,13 @@
     transform: rotate(360deg);
   }
 }
-.forms-c {
-  /* text-align: center; */
-  margin-left: 1vw;
-  display: flex;
-  justify-content: center;
-}
+
 .container1 {
   display: flex;
   justify-content: center;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 1vh;
 }
 .widther {
   display: flex;
@@ -52,5 +50,30 @@
   /* padding: 1vw; */
 }
 .sizer-1 {
-  height: 2.9vh;
+  height: 2.3rem;
+}
+.numact {
+  background-color: blue
+}
+button:focus {
+  outline: none;
+}
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+}
+@media (max-width: 768px) {
+  .toolbar-navigation-itemsr {
+    display: none;
+    box-shadow:none;
+  }
+}
+
+@media (min-width: 769px) {
+  .toolbar-toggle-buttonr {
+    display: none;
+  }
+  .sizer-1 {
+    height: 2rem;
+  }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { bookComment } from "../services/bookService";
+import SelectDataset from "./common/selectDataset";
 
 class SearchStockForm extends Form {
   state = {
@@ -17,11 +18,11 @@ class SearchStockForm extends Form {
 
   doSubmit = async () => {
     try {
-      console.log(this.state.data.stockSymbol)
-      this.props.setStock(this.state.data.stockSymbol)
+      console.log(this.state.data.stockSymbol);
+      this.props.setStock(this.state.data.stockSymbol);
       // await bookComment(this.state.data);
       // this.props.refresh();
-    //   window.location = "/";
+      //   window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -33,15 +34,20 @@ class SearchStockForm extends Form {
 
   render() {
     return (
-      <div className="forms-c">
-        <div>
-          <h1></h1>
-          <form onSubmit={this.handleSubmit}>
-            <div className="widther">
-            {this.renderInput("stockSymbol", "", "Enter stock symbol")}
-            {this.renderButton("Submit")}
-            </div>
-          </form>
+      <div className=" ">
+        <div className="">
+          <div className="container1">
+            <SelectDataset
+              setDataset={this.props.setDataset}
+              className="sizer-1"
+            />
+            <form onSubmit={this.handleSubmit} className="">
+              <div className="widther">
+                {this.renderInput("stockSymbol", "", "Enter stock symbol")}
+                {this.renderButton("Submit")}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );
